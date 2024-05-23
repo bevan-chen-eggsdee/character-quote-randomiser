@@ -1,8 +1,8 @@
 import * as Path from 'node:path'
 import express from 'express'
-import quote from './routes/quote.ts'
 import * as URL from 'node:url'
 import { join } from 'node:path'
+import quote from './routes/quote.ts'
 
 const server = express()
 const __filename = URL.fileURLToPath(import.meta.url)
