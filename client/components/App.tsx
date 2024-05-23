@@ -1,21 +1,20 @@
-import { useState } from 'react'
-import { getGreeting } from '../apiClient.ts'
+import React, { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
+
+import Header from './Header.tsx'
+
 import { Outlet } from 'react-router-dom'
 
+
 const App = () => {
-  const [count, setCount] = useState(0)
-
-  const {
-    data: greeting,
-    isError,
-    isPending,
-  } = useQuery({ queryKey: ['greeting', count], queryFn: getGreeting })
-
-  if (isPending) return <p>Loading...</p>
+  const [backgroundColor, setBackgroundColor] = useState('black')
 
   return (
     <>
+
+      <div style={{ backgroundColor }}>
+        <Header />
+      </div>
       {/* {count}
       <h1>{greeting}</h1>
       {isError && (
@@ -25,6 +24,7 @@ const App = () => {
       )}
       <button onClick={() => setCount(count + 1)}>Click</button> */}
       <Outlet />
+
     </>
   )
 }
