@@ -48,9 +48,9 @@ export default function Quote() {
     <div>
       {randomQuote && (
         <div>
-          <p>{randomQuote.dialog}</p>
+          <p>Quote: {randomQuote.dialog}</p>
           <p>
-            <strong>{randomQuote.character}</strong>
+            <strong>Character ID: {randomQuote.character}</strong>
           </p>
         </div>
       )}

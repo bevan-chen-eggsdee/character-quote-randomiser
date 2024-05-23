@@ -3,6 +3,7 @@ import express from 'express'
 import * as URL from 'node:url'
 import { join } from 'node:path'
 import quote from './routes/quote.ts'
+import character from './routes/character.ts'
 
 const server = express()
 const __filename = URL.fileURLToPath(import.meta.url)
@@ -27,5 +28,6 @@ server.use(express.static(join(__dirname, './public')))
 // }
 
 server.use('/api/v1/quote', quote)
+server.use('/api/v1/character', character)
 
 export default server
