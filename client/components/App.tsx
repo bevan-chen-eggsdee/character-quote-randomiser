@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
+import Header from './Header'
 
-const App = () => {
-  const [backgroundColor, setBackgroundColor] = useState('black')
-
+function App() {
   return (
     <>
       {count}
@@ -17,5 +16,4 @@ const App = () => {
     </>
   )
 }
-
 export default App
