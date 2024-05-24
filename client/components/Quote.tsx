@@ -1,42 +1,11 @@
-import request from 'superagent'
-import { useQuery } from '@tanstack/react-query'
-import { QuoteData } from '../../models/quotedata'
-import { useEffect, useState } from 'react'
-
-function useQuote() {
-  return useQuery({
-    queryKey: ['quote'],
-    queryFn: async () => {
-      const res = await request.get(`api/v1/quote`)
-      return res.body as QuoteData
-    },
-  })
-}
-
-export default function Quote() {
-  const { data, isPending, isError, error } = useQuote()
-  const [randomQuote, setRandomQuote] = useState<{
-    dialog: string
-    character: string
-  } | null>(null)
-
-  useEffect(() => {
-    if (data?.docs) {
-      getRandomQuote()
-    }
-  }, [data]) //find more information about error!
-
-  const getRandomQuote = () => {
-    if (data?.docs.length) {
-      const randomIndex = Math.floor(Math.random() * data.docs.length)
-      const selectedDoc = data.docs[randomIndex]
-      setRandomQuote({
-        dialog: selectedDoc.dialog,
-        character: selectedDoc.character,
-      })
-    }
-  }
-
+export default function Quote({
+  data,
+  isPending,
+  isError,
+  error,
+  randomQuote,
+  getRandomQuote,
+}) {
   if (isPending) {
     return <p>Loading...</p>
   }

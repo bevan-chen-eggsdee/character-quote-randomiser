@@ -13,5 +13,5 @@ export interface CharacterInfo {
 }
 
 export interface CharacterDataList {
-  docs: Character[]
+  docs: CharacterInfo[]
 }
