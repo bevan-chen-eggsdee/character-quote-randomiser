@@ -1,16 +1,13 @@
-export default function Quote({
-  data,
-  isPending,
-  isError,
-  error,
-  randomQuote,
-  getRandomQuote,
-}) {
-  if (isPending) {
+import { Doc } from '../../models/quotedata'
+
+interface Props {
+  randomQuote: Doc
+  getRandomQuote: () => Promise<void>
+}
+
+export default function Quote({ randomQuote, getRandomQuote }: Props) {
+  if (!randomQuote) {
     return <p>Loading...</p>
-  }
-  if (isError) {
-    return <p>There was a problem:{String(error)}</p>
   }
 
   return (

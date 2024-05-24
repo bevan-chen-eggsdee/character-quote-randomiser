@@ -2,43 +2,26 @@
 // import { useQuery } from '@tanstack/react-query'
 import Character from './Character.tsx'
 import Quote from './Quote.tsx'
-import useQuote from '../hooks/useQuote.ts'
 import { useEffect, useState } from 'react'
+import { getQuote } from '../apiClient.ts'
+import { Doc } from '../../models/quotedata.ts'
 
 const App = () => {
-  const { data, isPending, isError, error } = useQuote()
-  const [randomQuote, setRandomQuote] = useState<{
-    dialog: string
-    character: string
-  } | null>(null)
+  const [randomQuote, setRandomQuote] = useState<Doc | null>(null)
 
-  const getRandomQuote = () => {
-    if (data?.docs.length) {
-      const randomIndex = Math.floor(Math.random() * data.docs.length)
-      const selectedDoc = data.docs[randomIndex]
-      setRandomQuote({
-        dialog: selectedDoc.dialog,
-        character: selectedDoc.character,
-      })
-    }
+  async function getRandomQuote() {
+    setRandomQuote(null)
+    const quote = await getQuote()
+    setRandomQuote(quote)
   }
 
   useEffect(() => {
-    if (data?.docs) {
-      getRandomQuote()
-    }
-  }, [data]) //find more information about error!
+    getRandomQuote()
+  }, []) //find more information about error!
 
   return (
     <>
-      <Quote
-        data={data}
-        isPending={isPending}
-        isError={isError}
-        error={error}
-        randomQuote={randomQuote}
-        getRandomQuote={getRandomQuote}
-      />
+      <Quote randomQuote={randomQuote} getRandomQuote={getRandomQuote} />
       <Character />
     </>
   )

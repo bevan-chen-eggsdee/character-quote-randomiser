@@ -8,11 +8,11 @@ export interface QuoteData {
 }
 
 export interface Doc {
-  id: string
+  _id: string
   dialog: string
   movie: Movie
   character: string
-  docID: string
+  id: string
 }
 
 export type Movie = '5cd95395de30eff6ebccde5d' | '5cd95395de30eff6ebccde5b'
