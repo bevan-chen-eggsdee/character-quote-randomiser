@@ -8,9 +8,6 @@ import {
 //import different components
 
 import App from './components/App'
-import Header from './components/Header'
-import Footer from './components/Footer'
-import Body from './components/Body'
 import GenerateQuoteButton from './components/GenerateQuoteButton'
 import DisplayQuotes from './components/DisplayQuotes'
 import { Options } from './components/Options'

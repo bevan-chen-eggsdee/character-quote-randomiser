@@ -1,4 +1,3 @@
-
 // import { useState } from 'react'
 // import { useQuery } from '@tanstack/react-query'
 import Character from './Character.tsx'
@@ -7,6 +6,9 @@ import { useEffect, useState } from 'react'
 import { getCharacter, getQuote } from '../apiClient.ts'
 import { QuoteDoc } from '../../models/quotedata.ts'
 import { CharacterInfo } from '../../models/characterData.ts'
+import Header from './Header.tsx'
+
+import { Outlet } from 'react-router-dom'
 
 const App = () => {
   const [randomQuote, setRandomQuote] = useState<QuoteDoc | null>(null)
@@ -32,42 +34,17 @@ const App = () => {
 
   return (
     <>
-      <Quote randomQuote={randomQuote} getRandomQuote={getRandomQuote} />
-      <Character
-        randomCharacter={randomCharacter}
-        getRandomCharacter={getRandomCharacter}
-      />
-
-import React, { useState } from 'react'
-import { useQuery } from '@tanstack/react-query'
-
-import Header from './Header.tsx'
-
-import { Outlet } from 'react-router-dom'
-
-
-const App = () => {
-  const [backgroundColor, setBackgroundColor] = useState('black')
-
-  return (
-    <>
-
-      <div style={{ backgroundColor }}>
+      <div>
         <Header />
+
+        <Quote randomQuote={randomQuote} getRandomQuote={getRandomQuote} />
+        <Character
+          randomCharacter={randomCharacter}
+          getRandomCharacter={getRandomCharacter}
+        />
+        <Outlet />
       </div>
-      {/* {count}
-      <h1>{greeting}</h1>
-      {isError && (
-        <p style={{ color: 'red' }}>
-          There was an error retrieving the greeting.
-        </p>
-      )}
-      <button onClick={() => setCount(count + 1)}>Click</button> */}
-      <Outlet />
-
-
     </>
   )
 }
-
 export default App
