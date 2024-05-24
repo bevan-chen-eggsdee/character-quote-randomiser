@@ -1,6 +1,4 @@
-import { getCats } from '../apiClient.ts'
-import { useQuery } from '@tanstack/react-query'
-import Options from './Options.tsx'
+import { Options } from './Options.tsx'
 
 function DisplayQuotes() {
   return (
@@ -9,12 +7,7 @@ function DisplayQuotes() {
       <div>
         {' '}
         <h3>Who said this?</h3>
-      </div>
-      <div>
-        <button>option1</button>
-        <button>option2</button>
-        <button>option3</button>
-        <button>option4</button>
+        <Options />
       </div>
     </>
   )
