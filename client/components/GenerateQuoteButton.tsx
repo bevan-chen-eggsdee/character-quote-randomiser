@@ -1,3 +1,5 @@
+//Main Page
+
 import { Link, useNavigate } from 'react-router-dom'
 
 function GenerateQuoteButton() {
@@ -9,20 +11,13 @@ function GenerateQuoteButton() {
 
   return (
     <>
-      <p>Click here to see a quote!</p>
-      <button
-        onClick={handleClick}
-        style={{
-          padding: '10px 20px',
-          backgroundColor: '#007bff',
-          color: '#fff',
-          border: 'none',
-          borderRadius: '5px',
-          cursor: 'pointer',
-        }}
-      >
-        Show Quote
-      </button>
+      <div className="aligncenter">
+        <h1>Random Quote Generator</h1>
+        <h2>Click to show quote:</h2>
+      </div>
+      <div className="aligncenter">
+        <button onClick={handleClick}>Show Quote</button>
+      </div>
     </>
   )
 }

@@ -1,8 +1,53 @@
-.background {
+body {
   background-color: black;
+  color: white
 }
 
-.banner {
-  width: 1830px;
+.topbanner {
+  width: 1900px;
   height: 150px
+}
+
+.botbanner {
+  height: 360px;
+  width: 1900px;
+
+}
+
+.aligncenter {
+  text-align: center;
+}
+
+.aligncenterr {
+  text-align: center;
+
+}
+
+
+.textbox {
+  background-color: #424949;
+  width: 300px;
+  padding: 50px;
+  margin: 20px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  color: black;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+button {
+  background-color: #424949;
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+  font-weight: bold
 }

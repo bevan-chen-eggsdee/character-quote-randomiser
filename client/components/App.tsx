@@ -7,8 +7,9 @@ import { getCharacter, getQuote } from '../apiClient.ts'
 import { QuoteDoc } from '../../models/quotedata.ts'
 import { CharacterInfo } from '../../models/characterData.ts'
 import Header from './Header.tsx'
-
+import Footer from './Footer.tsx'
 import { Outlet } from 'react-router-dom'
+
 
 const App = () => {
   const [randomQuote, setRandomQuote] = useState<QuoteDoc | null>(null)
@@ -34,6 +35,13 @@ const App = () => {
 
   return (
     <>
+
+      <body>
+        <Header />
+        <Outlet />
+        <Footer />
+      </body>
+
       <div>
         <Header />
 
@@ -44,6 +52,7 @@ const App = () => {
         />
         <Outlet />
       </div>
+
     </>
   )
 }
