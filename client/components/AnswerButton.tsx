@@ -11,7 +11,7 @@ export default function AnswerButton(props: Answer) {
   const [answer, setAnswer] = useState(false)
 
   function handleClick(el) {
-    if (el === 'man1') {
+    if (el === 'Frodo') {
       setAnswer(true)
       // setColor('#1CAC78')
       console.log('GREEN')

@@ -14,7 +14,7 @@ function shuffleArray<T>(array: T[]) {
 export function Options() {
   // const [color, setColor] = useState('#E8E8E8')
   const [answer, setAnswer] = useState(false)
-  const characters = ['man1', 'someone2', 'anotherOne3', 'someone else4']
+  const characters = ['Frodo', 'Gandalf', 'Pippin', 'Merry']
 
   const correctAnswer = characters[0]
   const shuffledArray = shuffleArray([...characters])

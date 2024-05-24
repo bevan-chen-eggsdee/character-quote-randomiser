@@ -12,11 +12,10 @@ function GenerateQuoteButton() {
   return (
     <>
       <div className="aligncenter">
-        <h1>Random Quote Generator</h1>
         <h2>Click to show quote:</h2>
       </div>
       <div className="aligncenter">
-        <button onClick={handleClick}>Show Quote</button>
+        <button onClick={handleClick}>Show Characters</button>
       </div>
     </>
   )

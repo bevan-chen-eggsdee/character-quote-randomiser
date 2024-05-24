@@ -10,7 +10,6 @@ import Header from './Header.tsx'
 import Footer from './Footer.tsx'
 import { Outlet } from 'react-router-dom'
 
-
 const App = () => {
   const [randomQuote, setRandomQuote] = useState<QuoteDoc | null>(null)
   const [randomCharacter, setRandomCharacter] = useState<CharacterInfo | null>(
@@ -35,13 +34,6 @@ const App = () => {
 
   return (
     <>
-
-      <body>
-        <Header />
-        <Outlet />
-        <Footer />
-      </body>
-
       <div>
         <Header />
 
@@ -52,7 +44,6 @@ const App = () => {
         />
         <Outlet />
       </div>
-
     </>
   )
 }

@@ -10,13 +10,13 @@ export default function Character({
   getRandomCharacter,
 }: Props) {
   return (
-    <div>
+    <div className="aligncenter">
       {randomCharacter && (
-        <div>
-          <p>Name: {randomCharacter.name}</p>
-          <p>
+        <div className="aligncenter">
+          <h1>Name: {randomCharacter.name}</h1>
+          <h4>
             <strong>Character ID: {randomCharacter._id}</strong>
-          </p>
+          </h4>
         </div>
       )}
       <button onClick={getRandomCharacter}>Get Random Character</button>
