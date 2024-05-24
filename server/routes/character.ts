@@ -11,13 +11,17 @@ router.get('/', async (req, res) => {
     if (LOTR_KEY == undefined) {
       throw new Error('Missing API_KEY')
     }
+
+    const random = Math.random() * 932
+    const randomIndex = Math.floor(random)
+
     const apiResponse = await request
-      .get(`https://the-one-api.dev/v2/character`)
+      .get(`https://the-one-api.dev/v2/character?limit=1&offset=${randomIndex}`)
       .auth(LOTR_KEY, { type: 'bearer' })
 
-    const random = Math.random() * apiResponse.body.docs.length
-    const randomIndex = Math.floor(random)
-    const selectedDoc = apiResponse.body.docs[randomIndex]
+    console.log(apiResponse.body.docs[0])
+
+    const selectedDoc = apiResponse.body.docs[0]
 
     res.json(selectedDoc)
   } catch (err) {
