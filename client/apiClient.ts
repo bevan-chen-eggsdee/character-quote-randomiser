@@ -1,4 +1,5 @@
 import request from 'superagent'
+
 import { QuoteDoc } from '../models/quotedata'
 import { CharacterInfo } from '../models/characterData'
 
@@ -16,3 +17,4 @@ export async function getCharacter(): Promise<CharacterInfo> {
   const res = await request.get('/api/v1/character')
   return res.body
 }
+
