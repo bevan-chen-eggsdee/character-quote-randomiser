@@ -10,7 +10,7 @@ export function Options() {
   )
 }
 
-const characters = ['man', 'someone', 'anotherOne', 'someone else']
+const characters = ['man1', 'someone2', 'anotherOne3', 'someone else4']
 const shuffledArray = shuffleArray(characters)
 
 function shuffleArray<T>(array: T[]) {
