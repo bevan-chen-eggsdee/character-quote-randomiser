@@ -15,7 +15,11 @@ router.get('/', async (req, res) => {
       .get(`https://the-one-api.dev/v2/character`)
       .auth(LOTR_KEY, { type: 'bearer' })
 
-    res.json(apiResponse.body)
+    const random = Math.random() * apiResponse.body.docs.length
+    const randomIndex = Math.floor(random)
+    const selectedDoc = apiResponse.body.docs[randomIndex]
+
+    res.json(selectedDoc)
   } catch (err) {
     if (err instanceof Error) {
       res.status(500).send((err as Error).message)

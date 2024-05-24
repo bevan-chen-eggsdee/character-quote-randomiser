@@ -1,5 +1,5 @@
 export interface QuoteData {
-  docs: Doc[]
+  docs: QuoteDoc[]
   total: number
   limit: number
   offset: number
@@ -7,7 +7,7 @@ export interface QuoteData {
   pages: number
 }
 
-export interface Doc {
+export interface QuoteDoc {
   _id: string
   dialog: string
   movie: Movie

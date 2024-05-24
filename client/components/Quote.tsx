@@ -1,7 +1,7 @@
-import { Doc } from '../../models/quotedata'
+import { QuoteDoc } from '../../models/quotedata'
 
 interface Props {
-  randomQuote: Doc
+  randomQuote: QuoteDoc
   getRandomQuote: () => Promise<void>
 }
 

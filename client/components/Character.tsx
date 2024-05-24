@@ -1,50 +1,26 @@
 import request from 'superagent'
 import { useQuery } from '@tanstack/react-query'
 import { useState, useEffect } from 'react'
-import { CharacterDataList } from '../../models/characterData'
+import { CharacterInfo } from '../../models/characterData'
 
-function useCharacter() {
-  return useQuery({
-    queryKey: ['character'],
-    queryFn: async () => {
-      const res = await request.get(`api/v1/character`)
-      return res.body as CharacterDataList
-    },
-  })
+// function useCharacter() {
+//   return useQuery({
+//     queryKey: ['character'],
+//     queryFn: async () => {
+//       const res = await request.get(`api/v1/character`)
+//       return res.body as CharacterDataList
+//     },
+//   })
+// }
+interface Props {
+  randomCharacter: CharacterInfo
+  getRandomCharacter: () => Promise<void>
 }
 
-export default function Character() {
-  const { data, isPending, isError, error } = useCharacter()
-
-  const [randomCharacter, setRandomCharacter] = useState<{
-    name: string
-    _id: string
-  } | null>(null)
-
-  useEffect(() => {
-    if (data?.docs) {
-      getRandomCharacter()
-    }
-  }, [data]) //find more information about error!
-
-  const getRandomCharacter = () => {
-    if (data?.docs.length) {
-      const randomIndex = Math.floor(Math.random() * data.docs.length)
-      const selectedDoc = data.docs[randomIndex]
-      setRandomCharacter({
-        name: selectedDoc.name,
-        _id: selectedDoc._id,
-      })
-    }
-  }
-
-  if (isPending) {
-    return <p>Loading...</p>
-  }
-  if (isError) {
-    return <p>There was a problem:{String(error)}</p>
-  }
-
+export default function Character({
+  randomCharacter,
+  getRandomCharacter,
+}: Props) {
   return (
     <div>
       {randomCharacter && (
