@@ -1,18 +1,20 @@
 import React, { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
-import Header from './Header'
+
+import Header from './Header.tsx'
+
+import Footer from './Footer.tsx'
+
+import { Outlet } from 'react-router-dom'
 
 function App() {
   return (
     <>
-      {count}
-      <h1>{greeting}</h1>
-      {isError && (
-        <p style={{ color: 'red' }}>
-          There was an error retrieving the greeting.
-        </p>
-      )}
-      <button onClick={() => setCount(count + 1)}>Click</button>
+      <body>
+        <Header />
+        <Outlet />
+        <Footer />
+      </body>
     </>
   )
 }

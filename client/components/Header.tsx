@@ -1,7 +1,11 @@
+import React from 'react'
+
 function Header() {
-  ;<>
-    <img src="../images/lotr.gif"></img>
-  </>
+  return (
+    <>
+      <img className="topbanner" src="../images/lotr.gif"></img>
+    </>
+  )
 }
 
 export default Header
